@@ -16,7 +16,7 @@ def outcome():
             write();write(eval(info))
     except:
         #Error Message
-        write();write('Listen here you little shit.')
+        write();write('Errors, try\nsomething else.')
 def decimalandpercent(num=''):
     info=Input.get('1.0','end')
     try:
@@ -30,9 +30,34 @@ def decimalandpercent(num=''):
                 write();write(float(info)*100)
     except:
         #Error Message
-        write();write('Listen here you little shit.')
+        write();write('Errors, try\nsomething else.')
+#Keybinds
+##Numbers
+window.bind('0',lambda x:write(0))
+window.bind('1',lambda x:write(1))
+window.bind('2',lambda x:write(2))
+window.bind('3',lambda x:write(3))
+window.bind('4',lambda x:write(4))
+window.bind('5',lambda x:write(5))
+window.bind('7',lambda x:write(7))
+window.bind('8',lambda x:write(8))
+window.bind('9',lambda x:write(9))
+##Symbols
+window.bind('+',lambda x:write('+'))
+window.bind('-',lambda x:write('-'))
+window.bind('*',lambda x:write('*'))
+window.bind('/',lambda x:write('/'))
+window.bind('^',lambda x:write('**'))
+window.bind('.',lambda x:write('.'))
+window.bind(')',lambda x:write(')'))
+window.bind('(',lambda x:write('('))
+##Functions
+window.bind('<Return>',lambda x:outcome())
+window.bind('p',lambda x:decimalandpercent('percent'))
+window.bind('d',lambda x:decimalandpercent('decimal'))
+window.bind('c',lambda x:write())
 #Window info
-window=Tk();window.title('Calculator');window.geometry('200x310');window.config(bg='black');window.wm_attributes('-toolwindow',True)
+window=Tk();window.title('Calculator');window.geometry('200x350');window.config(bg='black');window.wm_attributes('-toolwindow',True)
 #Textbox
 Input=Text(window,width=13,height=2,font=('Times New Roman',20),state='disabled');Input.place(x=7,y=10)
 #Buttons
@@ -56,6 +81,8 @@ Button(window,text='CLEAR',width=5,height=2,bg='orange',command=lambda:(write())
 Button(window,text='PER',width=5,height=2,bg='orange',command=lambda:(decimalandpercent('percent'))).place(x=55,y=260)
 Button(window,text='DEC',width=5,height=2,bg='orange',command=lambda:(decimalandpercent('decimal'))).place(x=100,y=260)
 Button(window,text='**(^)',width=5,height=2,bg='orange',command=lambda:(write('**'))).place(x=145,y=260)
+Button(window,text='(',width=5,height=2,bg='orange',command=lambda:(write('('))).place(x=10,y=300)
+Button(window,text=')',width=5,height=2,bg='orange',command=lambda:(write(')'))).place(x=55,y=300)
 #Mainloop
 window.mainloop()
 
